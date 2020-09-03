@@ -205,7 +205,7 @@ a:visited { color: #000000; }
 
 <body>
 <div class="glitch" data-text="strong">shell</div>
-<div class="bottomText">sh <(curl strong.sh | gpg)</div>
+<div class="bottomText">sh <(curl -s strong.sh)</div>
 </body>
 </html>
 <!--
@@ -227,15 +227,23 @@ EOF
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
+clear;
+echo "     _                               _      ";
+echo "    | |                             | |     ";
+echo " ___| |_ _ __ ___  _ __   __ _   ___| |__   ";
+echo "/ __| __| '__/ _ \| '_ \ / _` | / __| '_ \  ";
+echo "\__ \ |_| | | (_) | | | | (_| |_\__ \ | | | ";
+echo "|___/\__|_|  \___/|_| |_|\__, (_)___/_| |_| ";
+echo "                          __/ |             ";
+echo "                         |___/              ";
 # Greeting.
 echo "Hello. This will guide you through the installation of Arch Linux (currently only with support for GRUB) directly after initial boot from the archiso. To use this script enter 'y' for yes and 'n' for no. Any other option will be described."
 sleep 1
 
 # Shutdown.
-read -r -p "Do you want to start the installation now? Entering 'n' will shutdown the computer. (y/n) " start
+read -r -p "Do you want to start the installation now? Entering 'n' will exit the script. (y/n) " start
 if [ "${start}" = "n" ]; then
-  shutdown 0
+  exit 0
 fi
 
 setup_wifi() {
