@@ -1,0 +1,499 @@
+#!/bin/bash -e
+<<\EOF
+<!--
+  Hey, you decided to check out the source code!
+  That is a sign you hopefully know better than to blindly run unknown commands
+  from the internet and/or are a curious person. :)
+
+  The script is a work-in-progress and will soon include GPG verification. See script further below. 
+- -->
+<!DOCTYPE html>
+<html lang='en' class=''>
+<head>
+<meta name="viewport" content="initial-scale = 1, maximum-scale=1, user-scalable = 0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="MobileOptimized" content="320" />
+<meta charset='UTF-8'>
+<title>strong.sh</title>
+<meta name="robots" content="noindex">
+<style class="page">
+    body {
+  background: black;
+  font-family: 'Varela', sans-serif;
+}
+
+.bottomText {
+  color: white;
+  font-size: 20px;
+  position: relative;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.glitch {
+  color: white;
+  font-size: 50px;
+  position: relative;
+  width: 400px;
+  margin: 0 auto;
+}
+
+@keyframes noise-anim {
+  0% {
+    clip: rect(58px, 9999px, 19px, 0);
+  }
+  5% {
+    clip: rect(33px, 9999px, 58px, 0);
+  }
+  10% {
+    clip: rect(88px, 9999px, 53px, 0);
+  }
+  15% {
+    clip: rect(39px, 9999px, 99px, 0);
+  }
+  20% {
+    clip: rect(30px, 9999px, 100px, 0);
+  }
+  25% {
+    clip: rect(77px, 9999px, 31px, 0);
+  }
+  30% {
+    clip: rect(67px, 9999px, 67px, 0);
+  }
+  35% {
+    clip: rect(15px, 9999px, 20px, 0);
+  }
+  40% {
+    clip: rect(95px, 9999px, 73px, 0);
+  }
+  45% {
+    clip: rect(53px, 9999px, 33px, 0);
+  }
+  50% {
+    clip: rect(47px, 9999px, 41px, 0);
+  }
+  55% {
+    clip: rect(5px, 9999px, 58px, 0);
+  }
+  60% {
+    clip: rect(71px, 9999px, 20px, 0);
+  }
+  65% {
+    clip: rect(45px, 9999px, 33px, 0);
+  }
+  70% {
+    clip: rect(4px, 9999px, 18px, 0);
+  }
+  75% {
+    clip: rect(92px, 9999px, 92px, 0);
+  }
+  80% {
+    clip: rect(47px, 9999px, 96px, 0);
+  }
+  85% {
+    clip: rect(72px, 9999px, 37px, 0);
+  }
+  90% {
+    clip: rect(91px, 9999px, 65px, 0);
+  }
+  95% {
+    clip: rect(69px, 9999px, 92px, 0);
+  }
+  100% {
+    clip: rect(71px, 9999px, 84px, 0);
+  }
+}
+.glitch:after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -1px 0 red;
+  top: 0;
+  color: white;
+  background: black;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes noise-anim-2 {
+  0% {
+    clip: rect(14px, 9999px, 65px, 0);
+  }
+  5% {
+    clip: rect(32px, 9999px, 77px, 0);
+  }
+  10% {
+    clip: rect(43px, 9999px, 25px, 0);
+  }
+  15% {
+    clip: rect(98px, 9999px, 84px, 0);
+  }
+  20% {
+    clip: rect(35px, 9999px, 57px, 0);
+  }
+  25% {
+    clip: rect(100px, 9999px, 30px, 0);
+  }
+  30% {
+    clip: rect(1px, 9999px, 41px, 0);
+  }
+  35% {
+    clip: rect(48px, 9999px, 87px, 0);
+  }
+  40% {
+    clip: rect(17px, 9999px, 1px, 0);
+  }
+  45% {
+    clip: rect(43px, 9999px, 81px, 0);
+  }
+  50% {
+    clip: rect(100px, 9999px, 53px, 0);
+  }
+  55% {
+    clip: rect(18px, 9999px, 54px, 0);
+  }
+  60% {
+    clip: rect(75px, 9999px, 45px, 0);
+  }
+  65% {
+    clip: rect(33px, 9999px, 55px, 0);
+  }
+  70% {
+    clip: rect(47px, 9999px, 56px, 0);
+  }
+  75% {
+    clip: rect(29px, 9999px, 46px, 0);
+  }
+  80% {
+    clip: rect(35px, 9999px, 9px, 0);
+  }
+  85% {
+    clip: rect(85px, 9999px, 66px, 0);
+  }
+  90% {
+    clip: rect(5px, 9999px, 10px, 0);
+  }
+  95% {
+    clip: rect(28px, 9999px, 14px, 0);
+  }
+  100% {
+    clip: rect(11px, 9999px, 4px, 0);
+  }
+}
+.glitch:before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 1px 0 blue;
+  top: 0;
+  color: white;
+  background: black;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim-2 3s infinite linear alternate-reverse;
+}
+
+  </style>
+</head>
+
+<body>
+<div class="glitch" data-text="strong">shell</div>
+<div class="bottomText">sh <(curl strong.sh | gpg)</div>
+</body>
+</html>
+<!--
+EOF
+#!/bin/bash -e
+#    Arch Install Scripts
+#    Copyright (C) 2020  strong.sh
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+# Greeting.
+echo "Hello. This will guide you through the installation of Arch Linux (currently only with support for GRUB) directly after initial boot from the archiso. To use this script enter 'y' for yes and 'n' for no. Any other option will be described."
+sleep 1
+
+# Shutdown.
+read -r -p "Do you want to start the installation now? Entering 'n' will shutdown the computer. (y/n) " start
+if [ "${start}" = "n" ]; then
+  shutdown 0
+fi
+
+setup_wifi() {
+  ## Setup WiFi.
+  read -r -p "Do you want to use WiFi? (y/n) " wifi
+  if [ "${wifi}" = "y" ]; then
+    # Details needed to create connection.
+    read -r -p "What is it called? " wifi_name
+    read -r -p "What is the password? " wifi_password
+
+    # Show list of network interfaces.
+    ip a
+    read -r -p "What is your Wifi network interface? " wifi_interface
+
+    # Copy netctl example profile.
+    cp /etc/netctl/examples/wireless-wpa /etc/netctl/"${wifi_name}"
+
+    # Insert needed details.
+    sed -i "s/MyNetwork/${wifi_name}/" /etc/netctl/"${wifi_name}"
+    sed -i "s/WirelessKey/${wifi_password}/" /etc/netctl/"${wifi_name}"
+    sed -i "s/wlan0/${wifi_interface}/" /etc/netctl/"${wifi_name}"
+
+    # Start the WiFi connection.
+    netctl start "${wifi_name}"
+  fi
+}
+
+use_reflector() {
+  # List supported countries.
+  echo "Supported country codes:"
+  echo ""
+  reflector --list-countries | awk '{print $(NF-1)}' | xargs | sed -e 's/ /, /g'
+  echo ""
+
+  read -r -p "What country do you want your mirrors to be in? Enter the country code. " mirror_country
+  mirror_warning="0"
+
+  # Makes reflector run again if the user enters an invalid code.
+  for i in $(reflector --list-countries | awk '{print $(NF-1)}')
+  do
+    if [ "${mirror_country}" = "${i}" ]; then
+      mirror_warning="1"
+      break
+    fi
+  done
+
+  if ! [ "${mirror_warning}" = "1" ]; then
+    echo "ERROR: That is not a supported country."
+    echo ""
+    use_reflector
+  fi
+}
+
+update_mirrorlist() {
+  ## Update mirrorlist.
+  # Move the mirrorlist back if a backup has already been made.
+  if ! [ -f /etc/pacman.d/mirrorlist ] && [ -f /etc/pacman.d/mirrorlist.backup ]; then
+    mv /etc/pacman.d/mirrorlist.backup /etc/pacman.d/mirrorlist
+  fi
+
+  # Install reflector.
+  if ! pacman -Qq reflector &>/dev/null; then
+    pacman -Sy -q --noconfirm reflector >/dev/null
+  fi
+
+  # Move current mirrorlist for use as a backup.
+  mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+
+  # Get the correct country code for updating the mirrorlist.
+  use_reflector
+
+  # Use reflector to update mirrors.
+  reflector --country "${mirror_country}" --save /etc/pacman.d/mirrorlist
+
+  # Update mirrorlist.
+  pacman -Syyy
+}
+
+partition_drive() {
+  # Show the user their drives.
+  fdisk -l
+  sleep 2
+
+  # Ask what device to use and the size of the root partition.
+  read -r -p "Which drive do you want to partition? " device
+  read -r -p "How big do you want the root partition? Use 'GiB' or 'MiB' e.g 200GiB. Enter '100%' if you want it to fill up the rest of the drive. " rootsize
+
+  # Set default uefi value.
+  uefi=n
+
+  # Detect if it was booted using UEFI.
+  if [ -d /sys/firmware/efi/ ]; then
+    uefi=y
+  fi
+
+  # UEFI partitioning.
+  if [ "${uefi}" = "y" ]; then
+    # Create a new GPT partition layout.
+    parted -s "${device}" mklabel gpt &>/dev/null
+
+    # Create a 551MiB FAT32 boot partition.
+    parted "${device}" mkpart primary fat32 1MiB 551MiB &>/dev/null
+    parted "${device}" set 1 esp on &>/dev/null
+
+    # Format the boot partition.
+    mkfs.fat -F32 "${device}"1 >/dev/null
+
+    # Create a EXT4 root partition.
+    parted "${device}" mkpart primary ext4 551MiB "${rootsize}" &>/dev/null
+
+    # Format the root partition.
+    mkfs.ext4 "${device}"2 >/dev/null
+
+    # Mount the root partition as /mnt.
+    mount "${device}"2 /mnt
+
+    # For home partition.
+    home_part="3"
+  else
+    # BIOS partitioning.
+    # Create a new DOS partition layout.
+    parted -s "${device}" mklabel msdos &>/dev/null
+
+    # Create a EXT4 root partition.
+    parted "${device}" mkpart primary ext4 1MiB "${rootsize}" &>/dev/null
+
+    # Allow it to be booted into.
+    parted "${device}" set 1 boot on &>/dev/null
+
+    # Format the partition.
+    yes | mkfs.ext4 "${device}"1 >/dev/null
+
+    # Mount the partition as /mnt
+    mount "${device}"1 /mnt
+
+    # For home partition.
+    home_part="2"
+  fi
+
+  # Create a home partition.
+  read -r -p "Do you want a seperate home partition? (y/n) " wanthome
+  if [ "${wanthome}" = "y" ]; then
+    read -r -p "How big do you want the home partition? Use 'GiB' or 'MiB' e.g 200GiB. Enter '100%' if you want it to fill up the rest of the drive. " homesize
+
+    # Create a EXT4 home partition.
+    parted "${device}" mkpart primary ext4 "${rootsize}" "${homesize}"
+
+    # Format the home partition.
+    mkfs.ext4 "${device}""${home_part}"
+
+    # Create a home directory and mount the drive.
+    mkdir /mnt/home
+    mount "${device}""${home_part}" /mnt/home
+  fi
+}
+
+installation() {
+  # Install base packages with pacstrap.
+  pacstrap /mnt base
+
+  # Generate /etc/fstab.
+  genfstab -U -p /mnt >> /mnt/etc/fstab
+
+  # Copy mirrorlist.
+  mv /mnt/etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist.backup
+  cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
+
+  # Create the script to be run in the chroot.
+  cat <<\EOF > /mnt/root/archinstall-part2.sh
+#!/bin/bash
+
+# Update mirrorlist.
+pacman -Syyy >/dev/null
+
+# Install packages needed for GRUB. linux-headers isn't really needed but will help with other things.
+pacman -S --noconfirm -q grub efibootmgr dosfstools mtools linux-headers
+
+# Generate initcpio.
+mkinitcpio -p linux
+
+get_locale() {
+  # List supported locales.
+  echo "Supported locales:"
+  echo ""
+  awk '{print $1}' /etc/locale.gen | sed -e's/#//g' | sed -e 's/@.*//g' | sed -e 's/\..*//g' | awk '!x[$0]++' | xargs | sed -e 's/ /, /g'
+  echo ""
+
+  read -r -p "Which locale do you want? " locale
+  locale_warning="0"
+
+  # Run again if the user enters an invalid locale.
+  for i in $(awk '{print $1}' /etc/locale.gen | sed -e's/#//g' | sed -e 's/@.*//g' | sed -e 's/\..*//g' | awk '!x[$0]++')
+  do
+    if [ "${locale}" = "${i}" ]; then
+      locale_warning="1"
+      break
+    fi
+  done
+
+  if ! [ "${locale_warning}" = "1" ]; then
+    echo "ERROR: That is not a supported locale."
+    echo ""
+    get_locale
+  fi
+}
+
+# Get the correct locale.
+get_locale
+
+# Generate locale.
+sed -i "s/#${locale}.UTF-8 UTF-8/${locale}.UTF-8 UTF-8/" /etc/locale.gen
+sed -i "s/#${locale} UTF-8/${locale} UTF-8/" /etc/locale.gen
+locale-gen
+
+# Set locale.
+localectl set-locale LANG=${locale}.UTF-8
+
+# Install GRUB.
+if [ "${uefi}" = "y" ]; then
+  # Install GRUB for UEFI.
+  mkdir /boot/EFI
+  mount "${device}"1 /boot/EFI
+  grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+elif [ "${uefi}" = "n" ]; then
+  # Install GRUB for BIOS.
+  grub-install --target=i386-pc --recheck "${device}"
+fi
+
+# Set GRUB locale.
+cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
+
+# Generate GRUB configuration file.
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# Exit the chroot.
+exit
+EOF
+
+  # Add needed variables to script.
+  sed -i "3s|^|uefi=${uefi}\n|" /mnt/root/archinstall-part2.sh
+  sed -i "3s|^|device=${device}\n|" /mnt/root/archinstall-part2.sh
+
+  # Make the script executable.
+  chmod +x /mnt/root/archinstall-part2.sh
+
+  # Chroot into system and run the script.
+  arch-chroot /mnt /root/archinstall-part2.sh
+}
+
+last_steps() {
+  # Unmount all partitions.
+  umount -R /mnt
+
+  # Reboot.
+  read -r -p "Do you want to reboot? (y/n) " reboot
+  if [ "${reboot}" = "y" ]; then
+    reboot
+  fi
+}
+
+setup_wifi
+update_mirrorlist
+partition_drive
+installation
+last_steps
